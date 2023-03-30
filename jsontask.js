@@ -27,7 +27,7 @@ let formatter = function (obj) {
   const keys = Object.keys(obj);
 
   keys.forEach((property) => {
-    //turn y/s answers to true/false
+    //turn y/n answers to true/false
     if (typeof yes_no(obj[property]) == "boolean") {
       obj[property] = yes_no(obj[property]);
     }
