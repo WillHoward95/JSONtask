@@ -1,0 +1,9 @@
+"{
+    \"mortaged\":\"Y\",
+\"noOfApplicants\":\"2\",
+\"firstProperty\":\"Y\",
+\"buyingReadiness\":\"Viewing\",
+\"occupying\":\"N\",
+\"customerIntention\":\"Buy\",
+\"remoReadiness\":\"Researching\"
+}"
