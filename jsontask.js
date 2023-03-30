@@ -8,22 +8,37 @@ let jsonStr = {
   remoReadiness: "Researching",
 };
 
-// handling boolean values
-for (const property in jsonStr) {
-  if (jsonStr[property] === "Y") {
-    jsonStr[property] = true;
-  } else if (jsonStr[property] === "N") {
-    jsonStr[property] = false;
+//format yes/no values
+let yes_no = function (value) {
+  if (value === "Y" || value === "y" || value === "YES" || value === "yes") {
+    return true;
+  } else if (
+    value === "N" ||
+    value === "n" ||
+    value === "NO" ||
+    value === "no"
+  ) {
+    return false;
   }
-}
+};
 
-// handling string numbers
-for (const value in jsonStr) {
-  if (isNaN(parseInt(jsonStr[value]))) {
-    continue;
-  } else {
-    jsonStr[value] = parseInt(jsonStr[value]);
-  }
-}
+//formats values properly
+let formatter = function (obj) {
+  const keys = Object.keys(obj);
 
-console.log(jsonStr);
+  keys.forEach((property) => {
+    //turn y/s answers to true/false
+    if (typeof yes_no(obj[property]) == "boolean") {
+      obj[property] = yes_no(obj[property]);
+    }
+
+    //checks if the object property can be parseInted and if so does it
+    if (isNaN(parseInt(obj[property]))) {
+    } else {
+      obj[property] = parseInt(obj[property]);
+    }
+  });
+  console.log(obj);
+};
+
+formatter(jsonStr);
